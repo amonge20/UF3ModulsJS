@@ -1,0 +1,35 @@
+<html>
+    <body>
+        <canvas id="rainbow" width="300" height="150" style="border:1px solid #d3d3d3;">
+            Your browser does not support the HTML5 canvas tag.</canvas>
+            
+        <canvas id="myCanvas2" width="300" height="150" style="border:1px solid #d3d3d3;">
+            Your browser does not support the HTML5 canvas tag.</canvas>
+        <script>
+        var rainbow = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+        var canvas = document.getElementById("rainbow");
+        var ctx = canvas.getContext("2d");
+        
+        for (var i = 0; i < rainbow.length; i++) {
+            ctx.beginPath();
+            ctx.arc(150, 75, 65 - i*5, 0, Math.PI);
+            ctx.fillStyle = rainbow[i];
+            ctx.fill();
+        }
+
+        var canvas = document.getElementById("myCanvas2");
+        var ctx = canvas.getContext("2d");
+
+        for (var i = 0; i < 10; i++) {
+            var centerX = Math.floor(Math.random() * canvas.width);
+            var centerY = Math.floor(Math.random() * canvas.height);
+            var radius = Math.floor(Math.random() * 50);
+            var gray = Math.floor(Math.random() * 256);
+
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+            ctx.fillStyle = "rgb(" + gray + "," + gray + "," + gray + ")";
+            ctx.fill();
+        }
+        </script>
+</html>
